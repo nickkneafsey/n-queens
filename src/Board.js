@@ -73,7 +73,13 @@
     /*=========================================================================
     =                 TODO: fill in these Helper Functions                    =
     =========================================================================*/
-
+    clearRow: function(rowIndex){
+      var length = this.get('n');
+      var array = _(_.range(length)).map(function() {
+        return 0;
+      });
+      this.set(rowIndex, array);
+    },
     // ROWS - run from left to right
     // --------------------------------------------------------------
     //

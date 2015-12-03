@@ -16,10 +16,34 @@
 
 
 window.findNRooksSolution = function(n) {
-  var solution = undefined; //fixme
-
+  var solution = new Board({"n":n}); //fixme
+  //var solution = new Board([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]);
+  // solution.togglePiece(0,0);
+  // solution.togglePiece(1,1);
+  // solution.togglePiece(2,2);
+  // solution.togglePiece(3,3);
+  var rows = 0;
+  var cols = 0;
+  
+  var innerFun = function(rows, cols) {
+    console.log(rows);
+    if (rows===n) return;
+    
+    solution.togglePiece(rows,cols);
+    
+    if (solution.hasAnyRooksConflicts()){
+      solution.togglePiece(rows, cols);
+      cols++;
+      innerFun(rows, cols);
+    } else {
+      rows++;
+      innerFun(rows, 0);
+    }
+  };
+    
+  innerFun(rows,cols);
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
-  return solution;
+  return solution.rows();
 };
 
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
