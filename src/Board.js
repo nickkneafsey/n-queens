@@ -73,13 +73,7 @@
     /*=========================================================================
     =                 TODO: fill in these Helper Functions                    =
     =========================================================================*/
-    clearRow: function(rowIndex){
-      var length = this.get('n');
-      var array = _(_.range(length)).map(function() {
-        return 0;
-      });
-      this.set(rowIndex, array);
-    },
+    
     // ROWS - run from left to right
     // --------------------------------------------------------------
     //
@@ -90,7 +84,7 @@
       for(var i =0; i<this.get(rowIndex).length; i++) {
         if (this.get(rowIndex)[i]===1) count++;
       }
-      return !(count === 0 || count === 1); // fixme
+      return !(count === 0 || count === 1);
     },
 
     // test if any rows on this board contain conflicts
@@ -101,7 +95,7 @@
           return true;
         }
       }
-      return false; // fixme
+      return false;
     },
 
 
@@ -120,7 +114,7 @@
       for(var i=0; i< cols.length; i++) {
         if(cols[i] === 1) count++
       }
-      return !(count === 0 || count === 1); // fixme
+      return !(count === 0 || count === 1);
     },
 
     // test if any columns on this board contain conflicts
@@ -131,7 +125,7 @@
           return true;
         }
       }
-      return false; // fixme
+      return false;
     },
 
 
@@ -147,7 +141,7 @@
         if(this.get(i) && this.get(i)[majorDiagonalColumnIndexAtFirstRow] && this.get(i)[majorDiagonalColumnIndexAtFirstRow] === 1) count++;
         majorDiagonalColumnIndexAtFirstRow++;
       }
-      return !(count === 0 || count === 1); // fixme      
+      return !(count === 0 || count === 1);      
     },
 
     // test if any major diagonals on this board contain conflicts
@@ -158,7 +152,7 @@
           return true;
         }
       }
-      return false; // fixme
+      return false;
     },
 
 
@@ -174,7 +168,7 @@
         if(this.get(i) && this.get(i)[minorDiagonalColumnIndexAtFirstRow] && this.get(i)[minorDiagonalColumnIndexAtFirstRow] === 1) count++;
         minorDiagonalColumnIndexAtFirstRow--;
       }
-      return !(count === 0 || count === 1); // fixme   
+      return !(count === 0 || count === 1);  
     },
 
     // test if any minor diagonals on this board contain conflicts
@@ -185,7 +179,7 @@
           return true;
         }
       }
-      return false; // fixme
+      return false;
     }
 
     /*--------------------  End of Helper Functions  ---------------------*/
